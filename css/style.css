@@ -1,0 +1,127 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+html {
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  background: radial-gradient(rgb(129, 0, 0), black);
+}
+li {
+  list-style: none;
+}
+h1 {
+  text-align: center;
+}
+a {
+  height: 35px;
+  text-align: center;
+  line-height: 12px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 1rem;
+}
+a:hover {
+  background: rgba(0, 0, 0, .5);
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+#matchInfo {
+  font-size: 20px;
+  height: 25px;
+}
+.container {
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+}
+.card {
+  height: 12rem;
+  width: 12rem;
+  margin: .5rem;
+  cursor: pointer;
+  transform-style: preserve-3d;  
+  transition: all 0.8s ease;
+  background: no-repeat url("/MatchingGame/assets/default1.svg") 100%/100% rgb(0, 0, 0); 
+  background: rgb(82, 82, 82);
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+   
+}
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg); 
+}
+.flipCard {
+  transform: rotateY(180deg);
+  transition: all 1s;
+  background: none;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+.card.match {
+  cursor: default;
+  pointer-events: none;
+}
+.card.makeBig {
+  border: 5px solid rgb(103, 230, 72);
+}
+.disabled {
+	pointer-events: none;
+	cursor: default;
+}
+ 
+ @media screen and (max-width: 700px) {
+  .container {
+    width: 375px;
+  }
+  .card {
+    height: 8rem;
+    width: 8rem;
+  }
+}
